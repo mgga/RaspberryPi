@@ -101,13 +101,13 @@ def moveSmoothPosition(position,speed):
     global currentPosition
 
     if position < currentPosition:
-        while currentPosition >= position:
+        while currentPosition <= position:
             nextPosition = currentPosition-speed
             movePosition(nextPosition)
             currentPosition = nextPosition
         return
     elif position > currentPosition:
-            while currentPosition <= position:
+            while currentPosition >= position:
                 nextPosition = currentPosition-speed
                 movePosition(nextPosition)
                 currentPosition = nextPosition
