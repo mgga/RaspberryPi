@@ -80,7 +80,7 @@ try:
     while True:
         distance = calcDistanceCM(measureTime())
         print("Distance is "+str(distance)+"cm")
-        #time.sleep(0.01)
+        time.sleep(0.5)
 
 except:
     stopDistance()
