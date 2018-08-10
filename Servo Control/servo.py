@@ -18,7 +18,7 @@ def askPosition():
     validateInput = False
     while not validateInput:
         try:
-            a = float(input("Please tell me the servo position: "))
+            a = float(input("Please tell to which position you want to move the servo: "))
             validateInput = True
         except:
             validateInput = False    
