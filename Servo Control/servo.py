@@ -3,6 +3,7 @@ import time
 
 #Global Pin Variable
 pin = None
+currentPosition = 2.5
 
 def askPin():
     validateInput = False
@@ -50,7 +51,7 @@ def startServo():
     GPIO.setup(servoPIN, GPIO.OUT)
 
     pin = GPIO.PWM(servoPIN, 50) # GPIO 17 for PWM with 50Hz this is usually the case for servos
-    pin.start(2.5) # Initialization
+    pin.start(currentPosition) # Initialization
 
 
 def stopServo():
@@ -58,19 +59,36 @@ def stopServo():
     pin.stop()
     GPIO.cleanup()
 
-#def moveClock(currentPosition, speed):
+def moveClock(speed):
+    global currentPosition
+    while currentPosition<=12.5:
+        nextPosition = currentPosition+0.1
+        movePosition(nextPosition)
+        currentPosition = nextPosition
+        time.sleep(speed)
+    return
+    
    
-#def moveCClock(currentPostiion, speed):
+def moveCClock(speed):
+    global currentPosition
+    while currentPosition>=2.5:
+        nextPosition = currentPosition-0.1
+        movePosition(nextPosition)
+        currentPosition = nextPosition
+        time.sleep(speed)
+    return
 
 def movePosition(position):
-    #global pin
+    global currentPosition
     pin.ChangeDutyCycle(position)
-    
+    currentPosition = position
+    pin.ChangeDutyCycle(0)#stop the servo from shaking
 
 try:
     startServo()
+    speed = askSpeed()
     while True:
-        pos = askPosition()
-        movePosition(pos)
+        moveCClock(speed)
+        moveClock(speed)
 except KeyboardInterrupt:
     stopServo()
