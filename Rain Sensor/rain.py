@@ -26,8 +26,8 @@ def startRain():
     GPIO.setup(pin, GPIO.IN)
 
 def readRain():
-    rain = GPIO.input(pin)
-    return rain
+    rain = GPIO.input(pin) #pin will be high if not wet
+    return not rain
 
 def stopRain():
     GPIO.cleanup()
