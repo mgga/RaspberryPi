@@ -56,7 +56,27 @@ sudo reboot
 
 ### Installing
 
-Just download the repo and use python to run the code. Regard the comments to learn how things work. Some of the projects might have a couple of dependencies, they will be explained therein
+Download the rpi_ws281x submodule
+```
+git submodule update --init --recursive
+```
+
+We now need to compile it
+```
+cd rpi_ws281x/
+sudo scons
+```
+
+Now go into the python folder
+```
+cd python
+```
+
+And now build and install the modules
+```
+sudo python setup.py build
+sudo python setup.py install
+```
 
 ## Authors
 * **Jeremy Garff** - *WS2112 Library* - [jgarff](https://github.com/jgarff)
