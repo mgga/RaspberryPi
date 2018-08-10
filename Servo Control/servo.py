@@ -33,12 +33,12 @@ def askPosition():
 
 def askSpeed():
     speed = ''
-    speed = input("Please tell me how fast should the servo move [fast,slow or medium]: ")
-    while speed!='fast' or speed!='slow' or speed!='medium':
-        speed = input("Give me the speed againg. Hint it can only be fast, slow or medium: ")
-    if speed == 'fast':
+    speed = input("Please tell me how fast should the servo move [fast, medium or slow]: ")
+    while speed!="fast" or speed!="slow" or speed!="medium":
+        speed = input("Give me the speed againg. Hint it can only be fast, medium or slow: ")
+    if speed == "fast":
         sleep = 0.1 
-    elif speed == 'medium':
+    elif speed == "medium":
         sleep = 0.5
     else:
         sleep = 0.1
