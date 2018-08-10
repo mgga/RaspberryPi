@@ -94,13 +94,19 @@ def askColor():
     while not validateInput:
         try:
             #list(map(int, input().split()))
-            val = list(map(int, input("Please tell me the color you want R G B: ").split()))
-            validateInput = True
+            val = list(map(int, input("Please tell me the color you want R G B [give them as numbers between 0 and 255 separated by spaces] ").split()))
+            try:
+                if val[0]>=0 and val[0]<=255 and val[1]>=0 and val[1]<=255 and val[2]>=0 and val[2]<=255:
+                    validateInput = True
+            except:
+                validateInput = False
         except KeyboardInterrupt:
             exit()
         except:
             validateInput = False
 
+
+LED_PIN = askPin()
 try:
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
@@ -109,8 +115,7 @@ try:
 except:
     print("Try running as sudo!")
 
-try:
-    askPin()
+try:    
     mode = askMode()
 
     if mode == "color":
