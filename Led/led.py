@@ -108,6 +108,13 @@ def askColor():
             validateInput = False
     return val
 
+def askRainbow():
+    mode = ""
+    mode = str(input("Please tell the type of Rainbom you want [normal, cycle, theater]: "))
+    while mode!="normal" and mode!="cycle" and mode!="theater":
+        mode = str(input("Give me the mode again. Hint it can only be normal, cycle, theater: "))
+    return mode
+
 def cleanLED():
     colorWipe(strip, Color(0,0,0), 0)
 
@@ -125,12 +132,23 @@ try:
     mode = askMode()
     
     if mode == "color":
-        color = askColor()
-        colorWipe(strip, Color(color[0],color[1],color[2]),0)
+        while True:
+            color = askColor()
+            colorWipe(strip, Color(color[0],color[1],color[2]),0)
     elif mode == "theater":
-        time.sleep(1)
+        while True:
+            color = askColor()
+            theaterChase(strip, Color(color[0],color[1],color[2]),0)
     else:
-        time.sleep(1)
+        while True:
+            rainbow = askRainbow()
+            if mode == "normal":
+                rainbow(strip)
+            elif mode == "cycle":
+                rainbowCycle(strip)
+            else
+                theaterChaseRainbow(strip)
+        
 except KeyboardInterrupt:
     cleanLED()
     exit()
