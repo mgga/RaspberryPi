@@ -36,7 +36,7 @@ try:
     startRain()
     while True:
         if readRain():
-            print("It's raining - get the washing in!")
+            print("It's raining !")
             time.sleep(1)
 except KeyboardInterrupt:
     stopRain()
