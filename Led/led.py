@@ -93,7 +93,8 @@ def askColor():
     validateInput = False
     while not validateInput:
         try:
-            [a, b, c] = input("Please tell me the color you want [R , G, B]: ")
+            #list(map(int, input().split()))
+            val = list(map(int, input("Please tell me the color you want R G B: ").split()))
             validateInput = True
         except KeyboardInterrupt:
             exit()
