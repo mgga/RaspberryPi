@@ -21,7 +21,7 @@ def colorWipe(strip, color, wait_ms=0):
         if wait_ms != 0:
             time.sleep(wait_ms/1000.0)
 
-def theaterChase(strip, color, wait_ms=50, iterations=10):
+def theaterChase(strip, color, wait_ms=25, iterations=10):
     #Movie theater light style chaser animation#
     for j in range(iterations):
         for q in range(3):
@@ -43,7 +43,7 @@ def wheel(pos):
         pos -= 170
         return Color(0, pos * 3, 255 - pos * 3)
 
-def rainbow(strip, wait_ms=20, iterations=1):
+def rainbow(strip, wait_ms=10, iterations=1):
     #Draw rainbow that fades across all pixels at once#
     for j in range(256*iterations):
         for i in range(strip.numPixels()):
@@ -51,7 +51,7 @@ def rainbow(strip, wait_ms=20, iterations=1):
         strip.show()
         time.sleep(wait_ms/1000.0)
 
-def rainbowCycle(strip, wait_ms=20, iterations=5):
+def rainbowCycle(strip, wait_ms=10, iterations=5):
     #Draw rainbow that uniformly distributes itself across all pixels#
     for j in range(256*iterations):
         for i in range(strip.numPixels()):
@@ -59,7 +59,7 @@ def rainbowCycle(strip, wait_ms=20, iterations=5):
         strip.show()
         time.sleep(wait_ms/1000.0)
 
-def theaterChaseRainbow(strip, wait_ms=50):
+def theaterChaseRainbow(strip, wait_ms=10):
     #Rainbow movie theater light style chaser animation#
     for j in range(256):
         for q in range(3):
