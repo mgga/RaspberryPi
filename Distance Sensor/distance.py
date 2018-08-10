@@ -61,7 +61,7 @@ def measureTime():
     dropCounter = 0
     drop = False
     while GPIO.input(pinEcho) == 0:
-        if dropCounter < 10:
+        if dropCounter < 100:
             timeOff = time.time()
             dropCounter += 1
         else:
