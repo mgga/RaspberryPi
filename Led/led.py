@@ -156,9 +156,9 @@ try:
     else:
         while True:
             rainbow = askRainbow()
-            if mode == "normal":
+            if rainbow == "normal":
                 rainbow(strip)
-            elif mode == "cycle":
+            elif rainbow == "cycle":
                 rainbowCycle(strip)
             else:
                 theaterChaseRainbow(strip)
