@@ -93,7 +93,7 @@ def askColor():
     validateInput = False
     while not validateInput:
         try:
-            [a, b, c] = input("Please tell me the color you want [R , G, B]: "))
+            [a, b, c] = input("Please tell me the color you want [R , G, B]: ")
             validateInput = True
         except KeyboardInterrupt:
             exit()
