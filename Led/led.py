@@ -108,6 +108,19 @@ def askColor():
             validateInput = False
     return val
 
+def askIterations():
+    validateInput = False
+    while not validateInput:
+        try:
+            a = int(input("Please tell me the number of iterations: "))
+            validateInput = True
+        except KeyboardInterrupt:
+            cleanLED()
+            exit()
+        except:
+            validateInput = False    
+    return a
+
 def askRainbow():
     mode = ""
     mode = str(input("Please tell the type of Rainbom you want [normal, cycle, theater]: "))
@@ -138,7 +151,8 @@ try:
     elif mode == "theater":
         while True:
             color = askColor()
-            theaterChase(strip, Color(color[0],color[1],color[2]),10)
+            times = askIterations()
+            theaterChase(strip, Color(color[0],color[1],color[2]),50, times)
     else:
         while True:
             rainbow = askRainbow()
