@@ -25,6 +25,7 @@ def askPosition():
                 validateInput = False
         except KeyboardInterrupt:
             stopServo()
+            return
         except:
             validateInput = False    
     return a
