@@ -35,7 +35,7 @@ def askSpeed():
     speed = ""
     speed = str(input("Please tell me how fast should the servo move [fast, medium or slow]: "))
     while speed!="fast" and speed!="slow" and speed!="medium":
-        speed = str(input("Give me the speed againg. Hint it can only be fast, medium or slow: "))
+        speed = str(input("Give me the speed again. Hint it can only be fast, medium or slow: "))
     if speed == "fast":
         sleep = 0.05 
     elif speed == "medium":
@@ -43,6 +43,20 @@ def askSpeed():
     else:
         sleep = 0.01
     return sleep
+
+def askMode():
+    mode = ""
+    mode = str(input("Please tell the servo mode [position or rotation]: "))
+    while mode!="position" and mode!="rotation":
+        mode = str(input("Give me the mode again. Hint it can only be position or rotation: "))
+    return mode
+
+def askRotation():
+    rot = ""
+    rot = str(input("Please tell the direction of rotation [cw or ccw]: "))
+    while rot!="cw" and rot!="ccw":
+        rot = str(input("Give me the mode again. Hint it can only be cw or ccw [ clock wise or counter clock wise: "))
+    return rot
 
 def startServo():
     global pin
@@ -83,11 +97,37 @@ def movePosition(position):
     pin.ChangeDutyCycle(position)
     currentPosition = position
 
+def moveSmoothPosition(position,speed):
+    global currentPosition
+
+    if position < currentPosition:
+        while currentPosition >= position:
+            nextPosition = currentPosition-speed
+            movePosition(nextPosition)
+            currentPosition = nextPosition
+        return
+    elif position > currentPosition:
+            while currentPosition <= position:
+                nextPosition = currentPosition-speed
+                movePosition(nextPosition)
+                currentPosition = nextPosition
+            return
+    else:
+        return
+
+
 try:
     startServo()
+    mode = askMode()
     speed = askSpeed()
-    while True:
-        moveClock(speed)
-        moveCClock(speed)
+    if mode == "position":
+        pos = askPosition()
+        moveSmoothPosition(pos,speed)
+    else:
+        rot = askRotation()
+        if rot == "cw":
+            moveClock(speed)
+        else:
+            moveCClock(speed)
 except KeyboardInterrupt:
     stopServo()
