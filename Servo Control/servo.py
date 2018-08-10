@@ -32,7 +32,7 @@ def askPosition():
     return a
 
 def askSpeed():
-    speed = ''
+    speed = ""
     speed = input("Please tell me how fast should the servo move [fast, medium or slow]: ")
     while speed!="fast" or speed!="slow" or speed!="medium":
         speed = input("Give me the speed againg. Hint it can only be fast, medium or slow: ")
