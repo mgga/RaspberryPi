@@ -54,8 +54,13 @@ def askMode():
 def askRotation():
     rot = ""
     rot = str(input("Please tell the direction of rotation [cw or ccw]: "))
+    
     while rot!="cw" and rot!="ccw":
-        rot = str(input("Give me the mode again. Hint it can only be cw or ccw [ clock wise or counter clock wise: "))
+        try:
+            rot = str(input("Give me the mode again. Hint it can only be cw or ccw [ clock wise or counter clock wise: "))
+        except KeyboardInterrupt:
+            stopServo()
+            return
     return rot
 
 def startServo():
@@ -121,13 +126,15 @@ try:
     mode = askMode()
     speed = askSpeed()
     if mode == "position":
-        pos = askPosition()
-        moveSmoothPosition(pos,speed)
+        while True:
+            pos = askPosition()
+            moveSmoothPosition(pos,speed)
     else:
-        rot = askRotation()
-        if rot == "cw":
-            moveClock(speed)
-        else:
-            moveCClock(speed)
+        while True:
+            rot = askRotation()
+            if rot == "cw":
+                moveClock(speed)
+            else:
+                moveCClock(speed)
 except KeyboardInterrupt:
     stopServo()
