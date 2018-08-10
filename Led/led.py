@@ -146,7 +146,7 @@ try:
                 rainbow(strip)
             elif mode == "cycle":
                 rainbowCycle(strip)
-            else
+            else:
                 theaterChaseRainbow(strip)
         
 except KeyboardInterrupt:
