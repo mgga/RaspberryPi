@@ -61,13 +61,13 @@ def measureTime():
     dropCounter = 0
     while GPIO.input(pinEcho) == 0:
         if dropCounter < 1000:
-            timeOff = time.time_ns()
+            timeOff = time.time()
             dropCounter += 1
         else:
             print("Echo not recieved")
             break
     while GPIO.input(pinEcho) == 1:
-        timeOn = time.time_ns()
+        timeOn = time.time())
     deltaT = timeOn - timeOff
     return deltaT
 
