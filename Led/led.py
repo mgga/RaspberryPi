@@ -114,7 +114,10 @@ try:
     mode = askMode()
 
     if mode == "color":
+        askColor()
     elif mode == "theater":
+        time.sleep(1)
     else:
+        time.sleep(1)
 except KeyboardInterrupt:
     colorWipe(strip, Color(0,0,0), 0)
