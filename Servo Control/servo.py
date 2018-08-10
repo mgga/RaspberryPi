@@ -11,6 +11,8 @@ def askPin():
         try:
             a = int(input("Please tell me the pin the servo is connected to: "))
             validateInput = True
+        except KeyboardInterrupt:
+            return
         except:
             validateInput = False    
     return a
