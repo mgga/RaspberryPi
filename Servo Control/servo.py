@@ -39,9 +39,9 @@ def askSpeed():
     if speed == "fast":
         sleep = 0.1 
     elif speed == "medium":
-        sleep = 0.5
+        sleep = 0.25
     else:
-        sleep = 0.1
+        sleep = 0.5
     return sleep
 
 def startServo():
@@ -62,7 +62,7 @@ def stopServo():
 def moveClock(speed):
     global currentPosition
     while currentPosition<=12.5:
-        nextPosition = currentPosition+0.1
+        nextPosition = currentPosition+0.25
         movePosition(nextPosition)
         currentPosition = nextPosition
         time.sleep(speed)
@@ -72,7 +72,7 @@ def moveClock(speed):
 def moveCClock(speed):
     global currentPosition
     while currentPosition>=2.5:
-        nextPosition = currentPosition-0.1
+        nextPosition = currentPosition-0.25
         movePosition(nextPosition)
         currentPosition = nextPosition
         time.sleep(speed)
@@ -88,7 +88,7 @@ try:
     startServo()
     speed = askSpeed()
     while True:
-        moveCClock(speed)
         moveClock(speed)
+        moveCClock(speed)
 except KeyboardInterrupt:
     stopServo()
