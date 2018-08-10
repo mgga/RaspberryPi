@@ -63,20 +63,17 @@ def measureTime():
     dropCounter = 0
     drop = False
     while GPIO.input(pinEcho) == 0:
-        if dropCounter < 100:
+        if dropCounter < 1000:
             timeOff = time.time()
             dropCounter += 1
         else:
             drop = True
             print("Echo not recieved")
             break
-    if not drop:
-        while GPIO.input(pinEcho) == 1:
-            timeOn = time.time()
-        deltaT = timeOn - timeOff
-        return deltaT
-    else:
-        return 0
+    while GPIO.input(pinEcho) == 1:
+        timeOn = time.time()
+    deltaT = timeOn - timeOff
+    return deltaT
 
 try:
     startSensor()
