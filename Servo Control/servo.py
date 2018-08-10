@@ -39,11 +39,11 @@ def askSpeed():
     while speed!="fast" and speed!="slow" and speed!="medium":
         speed = str(input("Give me the speed again. Hint it can only be fast, medium or slow: "))
     if speed == "fast":
-        sleep = 0.025 
+        sleep = 0.1 
     elif speed == "medium":
-        sleep = 0.01
+        sleep = 0.05
     else:
-        sleep = 0.005
+        sleep = 0.025
     return sleep
 
 def askMode():
