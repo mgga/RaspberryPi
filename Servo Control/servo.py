@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# Author: Miguel Almeida
 import RPi.GPIO as GPIO
 import time
 

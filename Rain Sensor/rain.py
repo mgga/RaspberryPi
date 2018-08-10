@@ -1,6 +1,5 @@
-# raindrop sensor DO connected to GPIO18
-# HIGH = no rain, LOW = rain detected
-# Buzzer on GPIO13
+#!/usr/bin/env python3
+# Author: Miguel Almeida
 import time
 import RPi.GPIO as GPIO
 
