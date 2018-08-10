@@ -82,7 +82,6 @@ def movePosition(position):
     global currentPosition
     pin.ChangeDutyCycle(position)
     currentPosition = position
-    pin.ChangeDutyCycle(0)#stop the servo from shaking
 
 try:
     startServo()
