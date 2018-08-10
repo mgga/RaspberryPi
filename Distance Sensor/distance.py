@@ -7,9 +7,14 @@ from subprocess import PIPE, Popen
 
 def get_cpu_temperature():
     #get cpu temperature using vcgencmd#
-    process = Popen(['vcgencmd', 'measure_temp'], stdout=PIPE)
-    output, _error = process.communicate()
-    return float(output[output.index('=') + 1:output.rindex("'")])
+    try:
+        tFile = open('/sys/class/thermal/thermal_zone0/temp')
+        temp = float(tFile.read())
+        tempC = temp/1000
+        return tempC
+    except:
+        tFile.close()
+        exit()
 
 while True:
     temp = get_cpu_temperature()
