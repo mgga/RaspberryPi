@@ -80,7 +80,7 @@ def stopServo():
 
 def moveClock(speed):
     global currentPosition
-    while currentPosition<=12:
+    while currentPosition<=11.75:
         nextPosition = currentPosition+speed
         movePosition(nextPosition)
         currentPosition = nextPosition
