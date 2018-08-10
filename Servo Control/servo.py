@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 #Global Pin Variable
-pin = 17
+pin = GPIO.PWM(17, 50)
 
 def askPin():
     validateInput = False
@@ -59,10 +59,10 @@ def stopServo():
 def movePosition(position):
     #global pin
     pin.ChangeDutyCycle(position)
-
-        
+    
 
 try:
+    askPin()
     while True:
         pos = askPosition()
         movePosition(pos)
