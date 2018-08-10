@@ -155,10 +155,10 @@ try:
             theaterChase(strip, Color(color[0],color[1],color[2]),50, times)
     else:
         while True:
-            rainbow = askRainbow()
-            if rainbow == "normal":
+            mode = askRainbow()
+            if mode == "normal":
                 rainbow(strip)
-            elif rainbow == "cycle":
+            elif mode == "cycle":
                 rainbowCycle(strip)
             else:
                 theaterChaseRainbow(strip)
