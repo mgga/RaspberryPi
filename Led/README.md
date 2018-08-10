@@ -59,14 +59,14 @@ sudo reboot
 Just download the repo and use python to run the code. Regard the comments to learn how things work. Some of the projects might have a couple of dependencies, they will be explained therein
 
 ## Authors
-
-* **Miguel Almeida** - *Initial code snippets* - [mgga](https://github.com/mgga)
+* **Jeremy Garff** - *WS2112 Library* - [jgarff](https://github.com/jgarff)
+* **Miguel Almeida** - *Readme File* - [mgga](https://github.com/mgga)
 
 See also the list of [contributors](https://github.com/mgga/RaspberryPi/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under a permissive License - see the [LICENSE.md](rpi_ws281x/LICENSE.md) file for details
 
 ## Acknowledgments
 
