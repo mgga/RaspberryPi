@@ -55,6 +55,8 @@ def startSensor():
     GPIO.output(pinTrig, GPIO.LOW)
 
 def measureTime():
+    GPIO.output(pinTrig, False)
+    time.sleep(0.00001)
     GPIO.output(pinTrig, True)
     time.sleep(0.00001)
     GPIO.output(pinTrig, False)
