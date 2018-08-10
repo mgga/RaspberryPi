@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 #Global Pin Variable
-pin
+pin = 17
 
 def askPin():
     validateInput = False
