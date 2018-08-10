@@ -62,7 +62,7 @@ def movePosition(position):
     
 
 try:
-    askPin()
+    startServo()
     while True:
         pos = askPosition()
         movePosition(pos)
