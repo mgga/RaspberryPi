@@ -19,8 +19,8 @@ def askPosition():
     validateInput = False
     while not validateInput:
         try:
-            a = float(input("Please tell to which position you want to move the servo [3<= position <= 12: "))
-            if a>=2.75 or a<=12:
+            a = float(input("Please tell to which position you want to move the servo [3<= position <= 11: "))
+            if a>=3 or a<=11:
                 validateInput = True
             else:
                 validateInput = False
@@ -37,11 +37,11 @@ def askSpeed():
     while speed!="fast" and speed!="slow" and speed!="medium":
         speed = str(input("Give me the speed again. Hint it can only be fast, medium or slow: "))
     if speed == "fast":
-        sleep = 0.05 
+        sleep = 0.025 
     elif speed == "medium":
-        sleep = 0.025
-    else:
         sleep = 0.01
+    else:
+        sleep = 0.005
     return sleep
 
 def askMode():
@@ -106,14 +106,14 @@ def moveSmoothPosition(position,speed):
     global currentPosition
 
     if position < currentPosition:
-        while currentPosition <= position:
+        while currentPosition >= position:
             nextPosition = currentPosition-speed
             movePosition(nextPosition)
             currentPosition = nextPosition
         return
     elif position > currentPosition:
-            while currentPosition >= position:
-                nextPosition = currentPosition-speed
+            while currentPosition <= position:
+                nextPosition = currentPosition+speed
                 movePosition(nextPosition)
                 currentPosition = nextPosition
             return
