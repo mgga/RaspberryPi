@@ -78,9 +78,9 @@ def stopServo():
     pin.stop()
     GPIO.cleanup()
 
-def moveClock(speed):
+def moveCClock(speed):
     global currentPosition
-    while currentPosition<=11.75:
+    while currentPosition<=11:
         nextPosition = currentPosition+speed
         movePosition(nextPosition)
         currentPosition = nextPosition
@@ -88,7 +88,7 @@ def moveClock(speed):
     return
     
    
-def moveCClock(speed):
+def moveClock(speed):
     global currentPosition
     while currentPosition>=3:
         nextPosition = currentPosition-speed
