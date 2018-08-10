@@ -19,8 +19,8 @@ def askPosition():
     validateInput = False
     while not validateInput:
         try:
-            a = float(input("Please tell to which position you want to move the servo [2.5<= position <= 12.5: "))
-            if a>=2.5 or a<=12.5:
+            a = float(input("Please tell to which position you want to move the servo [3<= position <= 12: "))
+            if a>=2.75 or a<=12:
                 validateInput = True
             else:
                 validateInput = False
@@ -71,7 +71,7 @@ def moveClock(speed):
    
 def moveCClock(speed):
     global currentPosition
-    while currentPosition>=2.75:
+    while currentPosition>=3:
         nextPosition = currentPosition-0.1
         movePosition(nextPosition)
         currentPosition = nextPosition
