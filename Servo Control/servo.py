@@ -37,11 +37,11 @@ def askSpeed():
     while speed!="fast" and speed!="slow" and speed!="medium":
         speed = str(input("Give me the speed againg. Hint it can only be fast, medium or slow: "))
     if speed == "fast":
-        sleep = 0.01 
+        sleep = 0.05 
     elif speed == "medium":
         sleep = 0.025
     else:
-        sleep = 0.05
+        sleep = 0.01
     return sleep
 
 def startServo():
@@ -62,20 +62,20 @@ def stopServo():
 def moveClock(speed):
     global currentPosition
     while currentPosition<=12:
-        nextPosition = currentPosition+0.1
+        nextPosition = currentPosition+speed
         movePosition(nextPosition)
         currentPosition = nextPosition
-        time.sleep(speed)
+        #time.sleep(0.1)
     return
     
    
 def moveCClock(speed):
     global currentPosition
     while currentPosition>=3:
-        nextPosition = currentPosition-0.1
+        nextPosition = currentPosition-speed
         movePosition(nextPosition)
         currentPosition = nextPosition
-        time.sleep(speed)
+        #time.sleep(0.1)
     return
 
 def movePosition(position):
