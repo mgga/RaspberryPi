@@ -67,7 +67,7 @@ def measureTime():
             print("Echo not recieved")
             break
     while GPIO.input(pinEcho) == 1:
-        timeOn = time.time())
+        timeOn = time.time()
     deltaT = timeOn - timeOff
     return deltaT
 
