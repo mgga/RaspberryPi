@@ -77,6 +77,7 @@ def askPin():
             a = int(input("Please tell me the pin the LED strip is connected to: "))
             validateInput = True
         except KeyboardInterrupt:
+            cleanLED()
             exit()
         except:
             validateInput = False    
@@ -101,10 +102,14 @@ def askColor():
             except:
                 validateInput = False
         except KeyboardInterrupt:
+            cleanLED()
             exit()
         except:
             validateInput = False
     return val
+
+def cleanLED():
+    colorWipe(strip, Color(0,0,0), 0)
 
 
 LED_PIN = askPin()
@@ -127,4 +132,5 @@ try:
     else:
         time.sleep(1)
 except KeyboardInterrupt:
-    colorWipe(strip, Color(0,0,0), 0)
+    cleanLED()
+    exit()
