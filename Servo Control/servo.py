@@ -86,7 +86,7 @@ def moveCClock(speed):
         nextPosition = currentPosition+speed
         movePosition(nextPosition)
         currentPosition = nextPosition
-        #time.sleep(0.1)
+        time.sleep(0.01)
     return
     
    
@@ -96,7 +96,7 @@ def moveClock(speed):
         nextPosition = currentPosition-speed
         movePosition(nextPosition)
         currentPosition = nextPosition
-        #time.sleep(0.1)
+        time.sleep(0.01)
     return
 
 def movePosition(position):
@@ -112,12 +112,14 @@ def moveSmoothPosition(position,speed):
             nextPosition = currentPosition-speed
             movePosition(nextPosition)
             currentPosition = nextPosition
+            time.sleep(0.01)
         return
     elif position > currentPosition:
             while currentPosition <= position:
                 nextPosition = currentPosition+speed
                 movePosition(nextPosition)
                 currentPosition = nextPosition
+                time.sleep(0.01)
             return
     else:
         return
