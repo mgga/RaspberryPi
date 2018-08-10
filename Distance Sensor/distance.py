@@ -60,7 +60,7 @@ def measureTime():
     GPIO.output(pinTrig, False)
     dropCounter = 0
     while GPIO.input(pinEcho) == 0:
-        if dropCounter < 1000:
+        if dropCounter < 200:
             timeOff = time.time()
             dropCounter += 1
         else:
@@ -76,7 +76,7 @@ try:
     while True:
         distance = calcDistanceCM(measureTime())
         print("Distance is "+str(distance)+"cm")
-        time.sleep(0.1)
+        time.sleep(0.01)
 
 except KeyboardInterrupt:
     stopDistance()
