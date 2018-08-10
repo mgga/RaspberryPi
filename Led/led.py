@@ -104,6 +104,7 @@ def askColor():
             exit()
         except:
             validateInput = False
+    return val
 
 
 LED_PIN = askPin()
