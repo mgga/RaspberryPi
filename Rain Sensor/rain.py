@@ -33,6 +33,7 @@ def stopRain():
     GPIO.cleanup()
 
 try:
+    startRain()
     while True:
         if readRain():
             print("It's raining - get the washing in!")
