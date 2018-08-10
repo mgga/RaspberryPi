@@ -138,7 +138,7 @@ try:
     elif mode == "theater":
         while True:
             color = askColor()
-            theaterChase(strip, Color(color[0],color[1],color[2]),0)
+            theaterChase(strip, Color(color[0],color[1],color[2]),10)
     else:
         while True:
             rainbow = askRainbow()
