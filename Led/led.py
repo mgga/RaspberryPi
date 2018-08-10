@@ -117,9 +117,10 @@ except:
 
 try:    
     mode = askMode()
-
+    
     if mode == "color":
-        askColor()
+        color = askColor()
+        colorWipe(strip, Color(color[0],color[1],color[2]),0)
     elif mode == "theater":
         time.sleep(1)
     else:
