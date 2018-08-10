@@ -85,5 +85,5 @@ try:
         print("Distance is "+str(distance)+"cm")
         time.sleep(0.01)
 
-except KeyboardInterrupt:
+except:
     stopDistance()
