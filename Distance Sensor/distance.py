@@ -12,6 +12,6 @@ def get_cpu_temperature():
     return float(output[output.index('=') + 1:output.rindex("'")])
 
 while True:
-    temp = get_cpu_temperature
+    temp = get_cpu_temperature()
     print(temp)
     time.sleep(0.5)
