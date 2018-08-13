@@ -24,7 +24,7 @@ def askPosition():
     while not validateInput:
         try:
             a = float(input("Please tell to which position you want to move the servo [3<= position <= 11: "))
-            if a>=3 or a<=11:
+            if a>=3 and a<=11:
                 validateInput = True
             else:
                 validateInput = False
